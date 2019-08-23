@@ -8,6 +8,7 @@
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
     "gatsby-plugin-manifest": "^2.2.6",
+    "gatsby-plugin-netlify-functions": "0.0.3",
     "gatsby-plugin-offline": "^2.2.7",
     "gatsby-plugin-react-helmet": "^3.1.4",
     "gatsby-plugin-sharp": "^2.2.13",
@@ -16,7 +17,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-stripe-elements": "^4.0.1"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
