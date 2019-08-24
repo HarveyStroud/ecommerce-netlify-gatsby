@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 export default function HTML(props) {
   // HS For script https://js.stripe.com/v3/
   // Added here like this for now - had to copy this file from .cache/default-html.js but should maybe avoid doing this and use the react-helmet plugin instead?
+  //<script src="https://js.stripe.com/v3/"></script>
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -25,7 +26,7 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        <script src="https://js.stripe.com/v3/"></script>
+        <script id="stripe-js" src="https://js.stripe.com/v3/" async></script>
         {props.postBodyComponents}
       </body>
     </html>

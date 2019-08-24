@@ -7,8 +7,20 @@ import {CardElement, injectStripe} from 'react-stripe-elements';
 class CheckoutForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {complete: false};
+    this.state = {complete: false, stripe: null};
     this.submit = this.submit.bind(this);
+  }
+
+  componentDidMount() {
+    if (window.Stripe) {
+      this.setState({stripe: window.Stripe('pk_test_12345')});
+    }
+    else {
+        document.querySelector('#stripe-js').addEventListener('load', () => {
+        // Create Stripe instance once Stripe.js loads
+        this.setState({stripe: window.Stripe('pk_test_12345')});
+      });
+    }
   }
 
   async submit(ev) {

@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import {StripeProvider} from 'react-stripe-elements'
 
 import Header from "./header"
 import "./layout.css"
@@ -24,7 +25,8 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    //<>
+    <StripeProvider apiKey="pk_test_12345">
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -41,7 +43,8 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </StripeProvider>
+    //</>
   )
 }
 

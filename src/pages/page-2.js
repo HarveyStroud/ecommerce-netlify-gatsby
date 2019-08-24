@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import {Elements, StripeProvider} from 'react-stripe-elements'
-import CheckoutForm from '../components/CheckoutForm'
+import InjectedCheckoutForm from '../components/MyStoreCheckout'
 
 function buySomethingCheapAndCheerful() {
   alert("Buying SomethingCheapAndCheerful!")
@@ -23,7 +23,7 @@ const SecondPage = () => (
       <div className="example">
         <h1>React Stripe Elements Example</h1>
         <Elements>
-          <CheckoutForm />
+          <InjectedCheckoutForm />
         </Elements>
       </div>
     </StripeProvider>
