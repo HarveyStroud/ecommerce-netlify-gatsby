@@ -11,7 +11,7 @@ function buySomethingCheapAndCheerful() {
   alert("Buying SomethingCheapAndCheerful!")
 }
 
-const SecondPage = () => {
+const SecondPage = class extends React.Component {
   constructor() {
     super();
     this.state = {stripe: null};
