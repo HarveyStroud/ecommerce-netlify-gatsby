@@ -29,7 +29,7 @@ const stripeData = {
 stripeEmail: 'harveys@live.fr',
 stripeAmt: Math.floor(cartTotal * 100), //it expects the price in cents, as an integer
 stripeToken: "tok_visa", //testing token, later we would use payload.data.token
-stripeIdempotency: Math.floor(Math.random() * 1000000000000000000000);//uuidv1() //we use this library to create a unique id
+stripeIdempotency: Math.floor(Math.random() * 1000000000000000000000)//uuidv1() //we use this library to create a unique id
 };
 
 //    let response = await fetch("/index", {
