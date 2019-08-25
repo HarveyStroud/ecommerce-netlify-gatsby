@@ -14,12 +14,28 @@ class CheckoutForm extends Component {
   async submit(ev) {
     // User clicked submit
     let {token} = await this.props.stripe.createToken({name: "Name"});
-this.stripeEmail = 'harveys@live.fr';
-const stripeData = { token, stripeEmail: this.stripeEmail };
+
+//this.stripeEmail = 'harveys@live.fr';
+//const stripeData = { token, stripeEmail: this.stripeEmail };
+
+/*
+stripeEmail: payload.stripeEmail,
+stripeAmt: Math.floor(getters.cartTotal * 100), //it expects the price in cents, as an integer
+stripeToken: "tok_visa", //testing token, later we would use payload.data.token
+stripeIdempotency: uuidv1() //we use this library to create a unique id
+*/
+const cartTotal = 123.45;
+const stripeData = {
+stripeEmail: 'harveys@live.fr',
+stripeAmt: Math.floor(cartTotal * 100), //it expects the price in cents, as an integer
+stripeToken: "tok_visa", //testing token, later we would use payload.data.token
+stripeIdempotency: Math.floor(Math.random() * 1000000000000000000000);//uuidv1() //we use this library to create a unique id
+};
+
 //    let response = await fetch("/index", {
 let response = await fetch("https://suspicious-wescoff-b3ac78.netlify.com/.netlify/functions/index", {
         method: "POST",
-        headers: {"Content-Type": "text/plain"},
+        headers: {"Content-Type": "text/application/json"},
         body: stripeData
     });
 
