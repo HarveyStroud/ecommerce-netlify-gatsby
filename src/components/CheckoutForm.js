@@ -16,7 +16,8 @@ class CheckoutForm extends Component {
     let {token} = await this.props.stripe.createToken({name: "Name"});
 this.stripeEmail = 'harveys@live.fr';
 const stripeData = { token, stripeEmail: this.stripeEmail };
-    let response = await fetch("/index", {
+//    let response = await fetch("/index", {
+let response = await fetch("https://suspicious-wescoff-b3ac78.netlify.com/.netlify/functions/src/index", {
         method: "POST",
         headers: {"Content-Type": "text/plain"},
         body: stripeData
