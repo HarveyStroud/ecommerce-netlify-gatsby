@@ -18,12 +18,22 @@ const SecondPage = class extends React.Component {
   }
 
   componentDidMount() {
-    // Create Stripe instance in componentDidMount
-    // (componentDidMount only fires in browser/DOM environment)
-    this.setState({stripe: window.Stripe('pk_test_NtNh5ztyxJ1Qi7KXNaWPVTdm00Facs4hnt')});
+    // Create Stripe instance once Stripe.js loads
+    if (window.Stripe) {
+      // (componentDidMount only fires in browser/DOM environment)
+      this.setState({stripe: window.Stripe('pk_test_NtNh5ztyxJ1Qi7KXNaWPVTdm00Facs4hnt')});
+    }
+    else {
+      document.querySelector('#stripe-js').addEventListener('load', () => {
+        // Create Stripe instance once Stripe.js loads
+        this.setState({stripe: window.Stripe('pk_test_NtNh5ztyxJ1Qi7KXNaWPVTdm00Facs4hnt')});
+      });
+    }
   }
 
   render() {
+    // this.state.stripe will either be null or a Stripe instance
+    // depending on whether Stripe.js has loaded.
     return (
       <Layout>
         <SEO title="Page two" />
