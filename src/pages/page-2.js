@@ -34,6 +34,7 @@ const SecondPage = class extends React.Component {
   render() {
     // this.state.stripe will either be null or a Stripe instance
     // depending on whether Stripe.js has loaded.
+    // Todo: Possibly move StripeProvider higher up (into layout.js?)
     return (
       <Layout>
         <SEO title="Page two" />
