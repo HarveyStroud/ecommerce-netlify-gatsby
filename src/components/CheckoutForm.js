@@ -36,7 +36,7 @@ stripeIdempotency: Math.floor(Math.random() * 1000000000000000000000)//uuidv1() 
 let response = await fetch("https://suspicious-wescoff-b3ac78.netlify.com/.netlify/functions/index", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: stripeData
+        body: JSON.stringify(stripeData)
     });
 
     if (response.ok) {
