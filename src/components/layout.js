@@ -25,8 +25,8 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    //<>
-    <StripeProvider apiKey="pk_test_12345">
+    <>
+    //<StripeProvider apiKey="pk_test_12345">
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -43,8 +43,8 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </StripeProvider>
-    //</>
+    //</StripeProvider>
+    </>
   )
 }
 
